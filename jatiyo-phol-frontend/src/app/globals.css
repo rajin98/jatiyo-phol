@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: Li Halder Sourik;
+    font-style: normal;
+    src: url(../../public/font/LiHalderSourik.ttf);
+  }
+  @font-face {
+    font-family: Li Halder Sourik;
+    font-style: italic;
+    src: url(../../public/font/LiHalderSourikItalic.ttf);
+  }
+}
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .h1-highlight {
+    @apply text-red;
+
+    font-size: 3.95rem;
+    line-height: 3.95rem;
+  }
+
+  .gradient-bg {
+    background-image: linear-gradient(
+      90deg,
+      rgba(242, 238, 174, 1) 0%,
+      rgba(242, 174, 114, 1) 33%,
+      rgba(242, 126, 99, 1) 66%,
+      rgba(242, 96, 82, 1) 100%
+    );
+    background-repeat: no-repeat;
+    transition: background-position 1s ease;
+  }
+
+  .select-lang-open {
+    border: none !important;
+    box-shadow: 0px 0px 5px #3b3839 !important;
+
+    &:hover {
+      border: none !important;
+      box-shadow: 0px 0px 5px #3b3839 !important;
+    }
+  }
+
+  .select-lang-close {
+    border: none !important;
+    box-shadow: none !important;
+
+    &:hover {
+      border: none !important;
+      box-shadow: none !important;
+    }
+  }
+
+  .quiz-nav-button {
+    @apply px-4 pt-3 pb-2 cursor-pointer bg-red rounded-full text-white relative top-0 transition-all ease-in duration-75;
+
+    &:hover {
+      @apply shadow-basic;
+      top: -3px;
+    }
+
+    &:disabled {
+      @apply bg-gray-600;
+      &:hover {
+        @apply bg-gray-600 cursor-default top-0 shadow-none;
+      }
+    }
+  }
+}
